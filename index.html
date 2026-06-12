@@ -7,12 +7,12 @@
     <style>
         /* Steel Foundation - Dark Mode */
         :root {
-            --bg-deep: #000000;
-            --bg-panel: #281e36;
+            --bg-deep: #030e05;
+            --bg-panel: #1e362c;
             --text-main: #3dcd15;
-            --text-muted: #6a8ef1;
+            --text-muted: #6af187;
             --silver-border: #8d9401;
-            --accent-glow: rgba(125, 77, 255, 0.81);
+            --accent-glow: rgba(77, 255, 80, 0.81);
         }
 
         body {
@@ -31,7 +31,7 @@
             background: var(--bg-panel);
             padding: 15px 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(217, 92, 215, 0.579);
+            box-shadow: 0 4px 15px rgba(227, 255, 66, 0.579);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,7 +40,7 @@
 
         .toolbar label {
             font-weight: bold;
-            color: #a607fb;
+            color: #f2df62;
             margin-right: 10px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -49,7 +49,7 @@
 
         select {
             background-color: var(--bg-deep);
-            color: #d43030;
+            color: #8b5b01;
             border: 3px solid var(--silver-border);
             padding: 8px 15px;
             border-radius: 8px;
@@ -60,8 +60,8 @@
         }
         
         select:focus {
-            border-color: #8c00ff;
-            box-shadow: 0 0 8px rgba(244, 248, 0, 0.555);
+            border-color: #3d310d;
+            box-shadow: 0 0 8px rgba(104, 105, 15, 0.555);
         }
 
         .play-container {
@@ -83,7 +83,7 @@
             display: inline-block;
             margin-top: 10px;
             text-shadow: 0 0 10px currentColor; /* Dynamic glow */
-            background-color: rgba(236, 4, 4, 0.472);
+            background-color: rgba(1, 7, 77, 0.513);
             border: 1px solid currentColor;
         }
 
@@ -94,19 +94,19 @@
             display: block;
         }
 
-        h1 { color: #daf63f; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
-        h2 { color: #5a8cf0; margin-top: 2rem; border-bottom: 1px dashed var(--silver-border); padding-bottom: 5px;}
-        h4 { color: #81f5b1; margin: 5px 0; font-weight: normal; }
+        h1 { color: #3e4804; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
+        h2 { color: #b1f05a; margin-top: 2rem; border-bottom: 1px dashed var(--silver-border); padding-bottom: 5px;}
+        h4 { color: #dcf581; margin: 5px 0; font-weight: normal; }
         
         .dialogue-line, .context-line {
-            margin-bottom: 20px;
-            transition: opacity 0.8s ease, transform 0.5s ease;
+            margin-bottom: 10px;
+            transition: opacity 0.3s ease, transform 0.5s ease;
         }
 
         /* Focus Mode Mechanics */
         .play-container.focus-active .dialogue-line {
-            opacity: 0.35;
-            filter: grayscale(100%);
+            opacity: 0.20;
+            filter: grayscale(80%);
         }
         
         .play-container.focus-active .dialogue-line.focused {
