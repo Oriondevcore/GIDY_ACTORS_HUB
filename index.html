@@ -7,7 +7,7 @@
     <style>
         /* Steel Foundation - Dark Mode */
         :root {
-            --bg-deep: #000000;
+            --bg-deep: #202020;
             --bg-panel: #000000;
             --text-main: #3dcd15;
             --text-muted: #1aff00;
@@ -28,12 +28,12 @@
         }
         
         .toolbar {
-            max-width: 740px;
-            margin: 0 auto 40px auto;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
             background: var(--bg-panel);
-            padding: 25px 5px;
+            padding: 15px 5px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(218, 255, 31, 0.853);
+            box-shadow: 0 4px 10px rgba(31, 244, 255, 0.85);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,36 +41,36 @@
         }
 
         .toolbar label {
-            font-weight: bold;
-            color: #5bff42;
-            margin-right: 15px;
+            font-weight: 400;
+            color: #5eff00;
+            margin-right: 10px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             font-size: 0.95rem;
         }
 
         select {
             background-color: var(--bg-deep);
-            color: #25c4f5;
+            color: #05ff2f;
             border: 3px solid var(--silver-border);
-            padding: 8px 15px;
-            border-radius: 8px;
-            font-family: 'Quicksilver', sans-serif;
-            font-weight: bold;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-family: 'Cocogoose', sans-serif;
+            font-weight: 500;
             cursor: pointer;
             outline: none;
         }
         
         select:focus {
-            border-color: #4a724d;
-            box-shadow: 0 0 8px rgba(165, 130, 14, 0.735);
+            border-color: #00c3ff;
+            box-shadow: 0 6px 15px rgba(0, 255, 234, 0.735);
         }
 
         .play-container {
             background: var(--bg-panel);
             padding: 2rem 3rem;
             border-radius: 8px;
-            box-shadow: 0 4px 30px rgba(1, 255, 162, 0.787);
+            box-shadow: 0 6px 15px rgba(4, 30, 234, 0.787);
             max-width: 800px;
             margin: 0 auto;
             border: 3px solid var(--silver-border);
@@ -78,41 +78,41 @@
 
         /* Blaze Accents & Formatting */
         .character {
-            font-weight: 800;
+            font-weight: 600;
             padding: 2px 8px;
             border-radius: 4px;
             margin-right: 5px;
             display: inline-block;
             margin-top: 10px;
-            text-shadow: 0 0 10px currentColor; /* Dynamic glow */
-            background-color: rgba(0, 0, 0, 0.513);
-            border: 1px solid currentColor;
+            text-shadow: 0 0 20px currentColor; /* Dynamic glow */
+            background-color: rgba(36, 1, 1, 0.513);
+            border: 3px solid currentColor;
         }
 
         .stage-direction {
             font-style: italic;
             color: var(--text-muted);
-            margin: 20px 0;
+            margin: 10px 0;
             display: block;
         }
 
-        h1 { color: #fc6161; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
-        h2 { color: #65e66c; margin-top: 2rem; border-bottom: 1px dashed var(--silver-border); padding-bottom: 5px;}
-        h4 { color: #443bf5; margin: 5px 0; font-weight: normal; }
+        h1 { color: #f481dd; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
+        h2 { color: #43e446; margin-top: 2rem; border-bottom: 3px dashed var(--silver-border); padding-bottom: 5px;}
+        h4 { color: #f26df2; margin: 5px 0; font-weight: normal; }
         
         .dialogue-line, .context-line {
             margin-bottom: 10px;
-            transition: opacity 0.3s ease, transform 0.5s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         /* Focus Mode Mechanics */
         .play-container.focus-active .dialogue-line {
-            opacity: 0.20;
-            filter: grayscale(80%);
+            opacity: 0.10;
+            filter: grayscale(100%);
         }
         
         .play-container.focus-active .dialogue-line.focused {
-            opacity: 1;
+            opacity: 0.30;
             filter: grayscale(0%);
             transform: scale(1.02);
             transform-origin: left center;
@@ -123,11 +123,11 @@
         }
 
         .play-container.focus-active .context-line {
-            opacity: 0.5; /* Keep stage directions slightly visible */
+            opacity: 0.7; /* Keep stage directions slightly visible */
         }
 
         /* Mobile adjustments */
-        @media (max-width: 920px) {
+        @media (max-width: 900px) {
             .play-container { padding: 1.5rem; }
             .toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
@@ -142,7 +142,7 @@
                 <option value="ALL">Select</option>
                 </select>
         </div>
-        <div style="color: #b76a7e; font-size: 0.8rem;">
+        <div style="color: #a41aff; font-size: 0.8rem;">
             created for GIDY ACTORS HUB.
         </div>
     </div>
@@ -740,9 +740,9 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
             '#ff00ea', // Vibrant Pink
             '#b026ff', // Electric Purple
             '#39ff14', // Neon Green
-            '#ff4500', // Sunset Orange
+            '#39ff00', // Sunset Orange
             '#fce205', // Yellow
-            '#ff0055', // Hot Red
+            '#29ff00', // Hot Red
             '#00ff7f'  // Spring Green
         ];
         
@@ -761,7 +761,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
                 processedLine = `<h1>${processedLine.replace('# ', '')}</h1>`;
             } else if (processedLine.startsWith('## ')) {
                 processedLine = `<h2>${processedLine.replace('## ', '')}</h2>`;
-            } else if (processedLine.startsWith('#### ')) {
+            } else if (processedLine.startsWith('### ')) {
                 processedLine = `<h4>${processedLine.replace('#### ', '')}</h4>`;
             } else if (processedLine.trim() !== '') {
                 
@@ -806,7 +806,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
             option.value = char;
             option.textContent = char;
             option.style.color = characterColors[char];
-            option.style.backgroundColor = '#1a1d24'; // Keep dropdown items dark
+            option.style.backgroundColor = '#080808'; // Keep dropdown items dark
             characterSelect.appendChild(option);
         });
 
