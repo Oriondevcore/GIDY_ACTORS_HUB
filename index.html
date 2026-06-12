@@ -8,9 +8,9 @@
         /* Steel Foundation - Dark Mode */
         :root {
             --bg-deep: #202020;
-            --bg-panel: #000000;
+            --bg-panel: #080808;
             --text-main: #3dcd15;
-            --text-muted: #1aff00;
+            --text-muted: #5e10c3;
             --silver-border: #a01ae8;
             --accent-glow: rgba(71, 43, 183, 0.81);
         }
@@ -761,7 +761,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
                 processedLine = `<h1>${processedLine.replace('# ', '')}</h1>`;
             } else if (processedLine.startsWith('## ')) {
                 processedLine = `<h2>${processedLine.replace('## ', '')}</h2>`;
-            } else if (processedLine.startsWith('#### ')) {
+            } else if (processedLine.startsWith('### ')) {
                 processedLine = `<h4>${processedLine.replace('#### ', '')}</h4>`;
             } else if (processedLine.trim() !== '') {
                 
