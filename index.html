@@ -31,7 +31,7 @@
             max-width: 900px;
             margin: 0 auto 18px auto;
             background: var(--bg-panel);
-            padding: 10px 25px;
+            padding: 3ch 25px;
             border-radius: 20px;
             box-shadow: 0 8px 25px rgba(38, 255, 38, 0.85);
             display: flex;
@@ -51,18 +51,18 @@
 
         select {
             background-color: var(--bg-deep);
-            color: #ff0000;
+            color: #ffffff;
             border: 3px solid var(--silver-border);
-            padding: 8px 15px;
-            border-radius: 12px;
+            padding: 3px 3px;
+            border-radius: 9px;
             font-family: 'Quicksand', sans-serif;
             font-weight: 750;
             cursor: pointer;
-            outline: 2px solid var(--text-muted);
+            outline: 0.8px #00ff0d;
         }
         
         select:focus {
-            border-color: #ff00ea;
+            border-color: #ffffff;
             box-shadow: 0 4px 5px rgba(0, 255, 13, 0.735);
         }
 
@@ -70,7 +70,7 @@
             background: var(--bg-panel);
             padding: 2rem 3rem;
             border-radius: 16px;
-            box-shadow: 0 8px 26px rgba(255, 16, 16, 0.787);
+            box-shadow: 0 8px 26px rgba(183, 176, 176, 0.787);
             max-width: 800px;
             margin: 0 auto;
             border: 3px solid var(--silver-border);
@@ -107,28 +107,28 @@
 
         /* Focus Mode Mechanics */
         .play-container.focus-active .dialogue-line {
-            opacity: 0.40;
-            filter: grayscale(60%);
+            opacity: 0.80;
+            filter: grayscale(90%);
         }
         
         .play-container.focus-active .dialogue-line.focused {
-            opacity: 0.40;
+            opacity: 0.20;
             filter: grayscale(0%);
             transform: scale(1.02);
             transform-origin: left center;
             background-color: var(--accent-glow);
-            padding: 5px 16px;
+            padding: 5px 12px;
             border-radius: 16px;
-            border-left: 6px solid currentColor;
+            border-left: 3px solid currentColor;
         }
 
         .play-container.focus-active .context-line {
-            opacity: 0.6; /* Keep stage directions slightly visible */
+            opacity: 0.2; /* Keep stage directions slightly visible */
         }
 
         /* Mobile adjustments */
         @media (max-width: 900px) {
-            .play-container { padding: 1.6rem; }
+            .play-container { padding: 1.8rem; }
             .toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
@@ -142,7 +142,7 @@
                 <option value="ALL">CHARACTER</option>
                 </select>
         </div>
-        <div style="color: #d4ff00; font-size: 1.6rem;">
+        <div style="color: #ff00ae; font-size: 1.4rem;">
             DIGITAL SCRIPTS - GIDY ACTORS HUB.
         </div>
     </div>
