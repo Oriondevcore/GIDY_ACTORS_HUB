@@ -8,7 +8,7 @@
         /* Steel Foundation - Dark Mode */
         :root {
             --bg-deep: #202020;
-            --bg-panel: #080808;
+            --bg-panel: #000000;
             --text-main: #3dcd15;
             --text-muted: #5e10c3;
             --silver-border: #a01ae8;
@@ -16,11 +16,11 @@
         }
 
         body {
-            font-family: 'Quicksilver', system-ui, -apple-system, sans-serif;
+            font-family: 'Cocogoose', system-ui, -apple-system, sans-serif;
             line-height: 1.8;
-            padding: 30px;
+            padding: 10px;
             margin: 0 auto;
-            text-transform: uppercase;
+            text-transform: normal;
             letter-spacing: 1.2px;
             background-color: var(--bg-deep);
             color: var(--text-main);
@@ -29,10 +29,10 @@
         
         .toolbar {
             max-width: 900px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 10px auto;
             background: var(--bg-panel);
-            padding: 15px 5px;
-            border-radius: 12px;
+            padding: 5px 5px;
+            border-radius: 8px;
             box-shadow: 0 4px 10px rgba(31, 244, 255, 0.85);
             display: flex;
             justify-content: space-between;
@@ -41,36 +41,36 @@
         }
 
         .toolbar label {
-            font-weight: 400;
+            font-weight: 700;
             color: #5eff00;
             margin-right: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.1px;
             font-size: 0.95rem;
         }
 
         select {
             background-color: var(--bg-deep);
-            color: #2453d5;
+            color: #76f7d7;
             border: 3px solid var(--silver-border);
-            padding: 8px 10px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 3px;
             font-family: 'Cocogoose', sans-serif;
-            font-weight: 500;
+            font-weight: 800;
             cursor: pointer;
             outline: none;
         }
         
         select:focus {
             border-color: #00c3ff;
-            box-shadow: 0 6px 15px rgba(0, 255, 234, 0.735);
+            box-shadow: 0 8px 10px rgba(0, 255, 234, 0.735);
         }
 
         .play-container {
             background: var(--bg-panel);
             padding: 2rem 3rem;
             border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(4, 30, 234, 0.787);
+            box-shadow: 0 6px 15px rgba(234, 134, 4, 0.787);
             max-width: 800px;
             margin: 0 auto;
             border: 3px solid var(--silver-border);
@@ -78,14 +78,14 @@
 
         /* Blaze Accents & Formatting */
         .character {
-            font-weight: 600;
+            font-weight: 700;
             padding: 2px 8px;
-            border-radius: 4px;
+            border-radius: 3px;
             margin-right: 5px;
             display: inline-block;
             margin-top: 10px;
-            text-shadow: 0 0 20px currentColor; /* Dynamic glow */
-            background-color: rgba(36, 1, 1, 0.513);
+            text-shadow: 0 0 10px currentColor; /* Dynamic glow */
+            background-color: rgba(7, 3, 30, 0.513);
             border: 3px solid currentColor;
         }
 
@@ -96,9 +96,9 @@
             display: block;
         }
 
-        h1 { color: #f481dd; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
-        h2 { color: #43e446; margin-top: 2rem; border-bottom: 3px dashed var(--silver-border); padding-bottom: 5px;}
-        h4 { color: #f26df2; margin: 5px 0; font-weight: normal; }
+        h1 { color: #33a7e1; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
+        h2 { color: #5227ee; margin-top: 2rem; border-bottom: 3px dashed var(--silver-border); padding-bottom: 5px;}
+        h4 { color: #ec2bec; margin: 5px 0; font-weight: normal; }
         
         .dialogue-line, .context-line {
             margin-bottom: 10px;
@@ -107,8 +107,8 @@
 
         /* Focus Mode Mechanics */
         .play-container.focus-active .dialogue-line {
-            opacity: 0.10;
-            filter: grayscale(100%);
+            opacity: 0.40;
+            filter: grayscale(80%);
         }
         
         .play-container.focus-active .dialogue-line.focused {
@@ -118,17 +118,17 @@
             transform-origin: left center;
             background-color: var(--accent-glow);
             padding: 5px 10px;
-            border-radius: 5px;
+            border-radius: 3px;
             border-left: 3px solid currentColor;
         }
 
         .play-container.focus-active .context-line {
-            opacity: 0.7; /* Keep stage directions slightly visible */
+            opacity: 0.5; /* Keep stage directions slightly visible */
         }
 
         /* Mobile adjustments */
         @media (max-width: 900px) {
-            .play-container { padding: 1.5rem; }
+            .play-container { padding: 1.8rem; }
             .toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
@@ -137,12 +137,12 @@
 
     <div class="toolbar">
         <div>
-            <label for="character-select">Choose your role to highlight your lines:</label>
+            <label for="character-select">choose a monologue:</label>
             <select id="character-select">
-                <option value="ALL">Select</option>
+                <option value="ALL">ROLE</option>
                 </select>
         </div>
-        <div style="color: #a41aff; font-size: 0.8rem;">
+        <div style="color: #a41aff; font-size: 1.2rem;">
             created for GIDY ACTORS HUB.
         </div>
     </div>
