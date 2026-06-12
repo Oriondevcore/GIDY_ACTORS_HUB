@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophiatown Playwright - Orion Ventures Style</title>
+    <title>GIDY ACTORS HUB - Sophiatown Playwright - Orion Ventures S.A.</title>
     <style>
         /* Steel Foundation - Dark Mode */
         :root {
-            --bg-deep: #270127;
+            --bg-deep: #120d12;
             --bg-panel: #000000;
             --text-main: #3dcd15;
-            --text-muted: #95a495;
+            --text-muted: #bc3aef;
             --silver-border: #810cc0;
             --accent-glow: rgba(126, 229, 78, 0.81);
         }
@@ -28,12 +28,12 @@
         }
         
         .toolbar {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto 10px auto;
             background: var(--bg-panel);
             padding: 5px 5px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(188, 31, 255, 0.85);
+            box-shadow: 0 4px 15px rgba(38, 255, 38, 0.85);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,7 +42,7 @@
 
         .toolbar label {
             font-weight: 550;
-            color: #95ff00;
+            color: #26f30f;
             margin-right: 10px;
             text-transform: uppercase;
             letter-spacing: 1.1px;
@@ -63,15 +63,15 @@
         
         select:focus {
             border-color: #ff00ea;
-            box-shadow: 0 4px 5px rgba(255, 0, 255, 0.735);
+            box-shadow: 0 4px 5px rgba(0, 255, 13, 0.735);
         }
 
         .play-container {
             background: var(--bg-panel);
             padding: 2rem 3rem;
-            border-radius: 8px;
-            box-shadow: 0 0px 8px rgba(234, 4, 234, 0.787);
-            max-width: 900px;
+            border-radius: 16px;
+            box-shadow: 0 0px 16px rgba(4, 234, 146, 0.787);
+            max-width: 800px;
             margin: 0 auto;
             border: 3px solid var(--silver-border);
         }
@@ -79,56 +79,56 @@
         /* Blaze Accents & Formatting */
         .character {
             font-weight: 550;
-            padding: 2px 8px;
-            border-radius: 3px;
+            padding: 7px 16px;
+            border-radius: 16px;
             margin-right: 15px;
             display: inline-block;
-            margin-top: 10px;
-            text-shadow: 0 6px 10px currentColor; /* Dynamic glow */
-            background-color: rgba(217, 23, 214, 0.513);
+            margin-top: 13px;
+            text-shadow: 0 0 15px currentColor; /* Dynamic glow */
+            background-color: rgba(11, 9, 11, 0.513);
             border: 3px solid currentColor;
         }
 
         .stage-direction {
             font-style: italic;
             color: var(--text-muted);
-            margin: 10px 0;
+            margin: 12px 0;
             display: block;
         }
 
-        h1 { color: #a8a8a8; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
-        h2 { color: #f3efff; margin-top: 2rem; border-bottom: 3px dashed var(--silver-border); padding-bottom: 5px;}
-        h4 { color: #f9ecf9; margin: 5px 0; font-weight: normal; }
+        h1 { color: #ff00cc; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
+        h2 { color: #d102ff; margin-top: 2rem; border-bottom: 3px dashed var(--silver-border); padding-bottom: 5px;}
+        h4 { color: #ff06ff; margin: 5px 0; font-weight: normal; }
         
         .dialogue-line, .context-line {
-            margin-bottom: 10px;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-bottom: 12px;
+            transition: opacity 0.5s ease, transform 0.6s ease;
         }
 
         /* Focus Mode Mechanics */
         .play-container.focus-active .dialogue-line {
-            opacity: 0.40;
-            filter: grayscale(80%);
+            opacity: 0.30;
+            filter: grayscale(60%);
         }
         
         .play-container.focus-active .dialogue-line.focused {
-            opacity: 0.30;
+            opacity: 0.50;
             filter: grayscale(0%);
             transform: scale(1.02);
             transform-origin: left center;
             background-color: var(--accent-glow);
-            padding: 5px 10px;
-            border-radius: 3px;
+            padding: 5px 12px;
+            border-radius: 16px;
             border-left: 3px solid currentColor;
         }
 
         .play-container.focus-active .context-line {
-            opacity: 0.5; /* Keep stage directions slightly visible */
+            opacity: 0.6; /* Keep stage directions slightly visible */
         }
 
         /* Mobile adjustments */
-        @media (max-width: 900px) {
-            .play-container { padding: 1.8rem; }
+        @media (max-width: 800px) {
+            .play-container { padding: 1.9rem; }
             .toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
@@ -137,13 +137,13 @@
 
     <div class="toolbar">
         <div>
-            <label for="character-select">choose a monologue:</label>
+            <label for="character-select">SELECT TO HIGHLIGHT:</label>
             <select id="character-select">
-                <option value="ALL">ROLE</option>
+                <option value="ALL">CHARACTER</option>
                 </select>
         </div>
-        <div style="color: #a41aff; font-size: 1.2rem;">
-            created for GIDY ACTORS HUB.
+        <div style="color: #e11bff; font-size: 1.6rem;">
+            DIGITAL SCRIPTS - GIDY ACTORS HUB.
         </div>
     </div>
 
@@ -734,16 +734,15 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
         const outputDiv = document.getElementById('script-output');
         const characterSelect = document.getElementById('character-select');
         
-        // Blaze Neon Color Palette
         const neonColors = [
-            '#00f3ff', // Cyan
-            '#ff00ea', // Vibrant Pink
-            '#b026ff', // Electric Purple
-            '#39ff14', // Neon Green
-            '#2453d5', // Sunset Orange
-            '#fce205', // Yellow
-            '#29ff00', // Hot Red
-            '#00ff7f'  // Spring Green
+            '#00f3ff', 
+            '#ff00ea', 
+            '#b026ff', 
+            '#39ff14', 
+            '#2453d5', 
+            '#fce205', 
+            '#646cff', 
+            '#00ff7f'  
         ];
         
         const characterColors = {};
@@ -806,7 +805,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
             option.value = char;
             option.textContent = char;
             option.style.color = characterColors[char];
-            option.style.backgroundColor = '#1a1d24'; // Keep dropdown items dark
+            option.style.backgroundColor = '#080808'; // Keep dropdown items dark
             characterSelect.appendChild(option);
         });
 
@@ -818,7 +817,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
             if (selectedChar === 'ALL') {
                 outputDiv.classList.remove('focus-active');
                 allDialogueLines.forEach(line => line.classList.remove('focused'));
-                characterSelect.style.borderColor = '#374151'; // Reset border
+                characterSelect.style.borderColor = '#39FF00'; // Reset border
                 characterSelect.style.boxShadow = 'none';
             } else {
                 outputDiv.classList.add('focus-active');
