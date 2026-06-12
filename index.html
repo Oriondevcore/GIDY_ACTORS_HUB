@@ -753,7 +753,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
         const lines = rawContent.split('\n');
         let htmlContent = '';
 
-        // Step 1: Parse and inject HTML
+// Step 1: Parse and inject HTML
         lines.forEach(line => {
             let processedLine = line;
 
@@ -761,7 +761,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
                 processedLine = `<h1>${processedLine.replace('# ', '')}</h1>`;
             } else if (processedLine.startsWith('## ')) {
                 processedLine = `<h2>${processedLine.replace('## ', '')}</h2>`;
-            } else if (processedLine.startsWith('### ')) {
+            } else if (processedLine.startsWith('#### ')) {
                 processedLine = `<h4>${processedLine.replace('#### ', '')}</h4>`;
             } else if (processedLine.trim() !== '') {
                 
@@ -806,7 +806,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
             option.value = char;
             option.textContent = char;
             option.style.color = characterColors[char];
-            option.style.backgroundColor = '#080808'; // Keep dropdown items dark
+            option.style.backgroundColor = '#1a1d24'; // Keep dropdown items dark
             characterSelect.appendChild(option);
         });
 
