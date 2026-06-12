@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>GIDY ACTORS HUB - Sophiatown Playwright - Orion Ventures S.A.</title>
     <style>
         /* Steel Foundation - Dark Mode */
         :root {
-            --bg-deep: #120d12;
+            --bg-deep: #0d000d;
             --bg-panel: #000000;
             --text-main: #3dcd15;
             --text-muted: #bc3aef;
@@ -17,23 +17,23 @@
 
         body {
             font-family: 'Cocogoose', system-ui, -apple-system, sans-serif;
-            line-height: 1.8;
-            padding: 10px;
+            line-height: 1.6;
+            padding: 12px;
             margin: 0 auto;
-            text-transform: normal;
-            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
             background-color: var(--bg-deep);
             color: var(--text-main);
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
         }
         
         .toolbar {
-            max-width: 800px;
-            margin: 0 auto 10px auto;
+            max-width: 900px;
+            margin: 0 auto 18px auto;
             background: var(--bg-panel);
-            padding: 5px 5px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(38, 255, 38, 0.85);
+            padding: 10px 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(38, 255, 38, 0.85);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,24 +41,24 @@
         }
 
         .toolbar label {
-            font-weight: 550;
-            color: #26f30f;
-            margin-right: 10px;
+            font-weight: 650;
+            color: #29ff00;
+            margin-right: 12px;
             text-transform: uppercase;
             letter-spacing: 1.1px;
-            font-size: 0.95rem;
+            font-size: 1.4rem;
         }
 
         select {
             background-color: var(--bg-deep);
-            color: #00ccff;
+            color: #ff0000;
             border: 3px solid var(--silver-border);
-            padding: 4px 10px;
-            border-radius: 3px;
-            font-family: 'Cocogoose', sans-serif;
-            font-weight: 550;
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 750;
             cursor: pointer;
-            outline: none;
+            outline: 2px solid var(--text-muted);
         }
         
         select:focus {
@@ -70,7 +70,7 @@
             background: var(--bg-panel);
             padding: 2rem 3rem;
             border-radius: 16px;
-            box-shadow: 0 0px 16px rgba(4, 234, 146, 0.787);
+            box-shadow: 0 8px 26px rgba(255, 16, 16, 0.787);
             max-width: 800px;
             margin: 0 auto;
             border: 3px solid var(--silver-border);
@@ -78,15 +78,15 @@
 
         /* Blaze Accents & Formatting */
         .character {
-            font-weight: 550;
+            font-weight: 650;
             padding: 7px 16px;
-            border-radius: 16px;
+            border-radius: 26px;
             margin-right: 15px;
             display: inline-block;
             margin-top: 13px;
-            text-shadow: 0 0 15px currentColor; /* Dynamic glow */
+            text-shadow: 0 0 10px currentColor; /* Dynamic glow */
             background-color: rgba(11, 9, 11, 0.513);
-            border: 3px solid currentColor;
+            border: 8px solid currentColor;
         }
 
         .stage-direction {
@@ -97,7 +97,7 @@
         }
 
         h1 { color: #ff00cc; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
-        h2 { color: #d102ff; margin-top: 2rem; border-bottom: 3px dashed var(--silver-border); padding-bottom: 5px;}
+        h2 { color: #00ff0d; margin-top: 2rem; border-bottom: 3px dashed var(--silver-border); padding-bottom: 5px;}
         h4 { color: #ff06ff; margin: 5px 0; font-weight: normal; }
         
         .dialogue-line, .context-line {
@@ -107,19 +107,19 @@
 
         /* Focus Mode Mechanics */
         .play-container.focus-active .dialogue-line {
-            opacity: 0.30;
+            opacity: 0.40;
             filter: grayscale(60%);
         }
         
         .play-container.focus-active .dialogue-line.focused {
-            opacity: 0.50;
+            opacity: 0.40;
             filter: grayscale(0%);
             transform: scale(1.02);
             transform-origin: left center;
             background-color: var(--accent-glow);
-            padding: 5px 12px;
+            padding: 5px 16px;
             border-radius: 16px;
-            border-left: 3px solid currentColor;
+            border-left: 6px solid currentColor;
         }
 
         .play-container.focus-active .context-line {
@@ -127,8 +127,8 @@
         }
 
         /* Mobile adjustments */
-        @media (max-width: 800px) {
-            .play-container { padding: 1.9rem; }
+        @media (max-width: 900px) {
+            .play-container { padding: 1.6rem; }
             .toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
@@ -142,7 +142,7 @@
                 <option value="ALL">CHARACTER</option>
                 </select>
         </div>
-        <div style="color: #e11bff; font-size: 1.6rem;">
+        <div style="color: #d4ff00; font-size: 1.6rem;">
             DIGITAL SCRIPTS - GIDY ACTORS HUB.
         </div>
     </div>
@@ -759,8 +759,8 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
             if (processedLine.startsWith('# ')) {
                 processedLine = `<h1>${processedLine.replace('# ', '')}</h1>`;
             } else if (processedLine.startsWith('## ')) {
-                processedLine = `<h2>${processedLine.replace('## ', '')}</h2>`;
-            } else if (processedLine.startsWith('#### ')) {
+                processedLine = `<h2>${processedLine.replace('### ', '')}</h2>`;
+            } else if (processedLine.startsWith('### ')) {
                 processedLine = `<h4>${processedLine.replace('#### ', '')}</h4>`;
             } else if (processedLine.trim() !== '') {
                 
@@ -817,7 +817,7 @@ LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 h
             if (selectedChar === 'ALL') {
                 outputDiv.classList.remove('focus-active');
                 allDialogueLines.forEach(line => line.classList.remove('focused'));
-                characterSelect.style.borderColor = '#39FF00'; // Reset border
+                characterSelect.style.borderColor = '#080808'; // Reset border
                 characterSelect.style.boxShadow = 'none';
             } else {
                 outputDiv.classList.add('focus-active');
