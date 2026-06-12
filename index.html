@@ -8,9 +8,9 @@
         /* Steel Foundation - Dark Mode */
         :root {
             --bg-deep: #000000;
-            --bg-panel: #4500a0;
-            --text-main: #1ede37;
-            --text-muted: #16efff;
+            --bg-panel: #120128;
+            --text-main: #bc4343;
+            --text-muted: #193ea3;
             --silver-border: #8d9401;
             --accent-glow: rgba(125, 77, 255, 0.81);
         }
@@ -40,19 +40,19 @@
 
         .toolbar label {
             font-weight: bold;
-            color: #9efb07;
+            color: #a607fb;
             margin-right: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            font-size: 0.95rem;
         }
 
         select {
             background-color: var(--bg-deep);
-            color: #30a5d4;
-            border: 1px solid var(--silver-border);
+            color: #d43030;
+            border: 3px solid var(--silver-border);
             padding: 8px 15px;
-            border-radius: 4px;
+            border-radius: 8px;
             font-family: 'Quicksilver', sans-serif;
             font-weight: bold;
             cursor: pointer;
@@ -60,15 +60,15 @@
         }
         
         select:focus {
-            border-color: #00f3ff;
-            box-shadow: 0 0 8px rgba(0, 243, 255, 0.4);
+            border-color: #8c00ff;
+            box-shadow: 0 0 8px rgba(244, 248, 0, 0.555);
         }
 
         .play-container {
             background: var(--bg-panel);
             padding: 2rem 3rem;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 30px rgba(4, 244, 76, 0.5);
             max-width: 800px;
             margin: 0 auto;
             border: 1px solid var(--silver-border);
@@ -90,22 +90,22 @@
         .stage-direction {
             font-style: italic;
             color: var(--text-muted);
-            margin: 10px 0;
+            margin: 20px 0;
             display: block;
         }
 
-        h1 { color: #2266ef; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
-        h2 { color: #3779fd; margin-top: 2rem; border-bottom: 1px dashed var(--silver-border); padding-bottom: 5px;}
-        h4 { color: #1f71ff; margin: 5px 0; font-weight: normal; }
+        h1 { color: #688dd9; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
+        h2 { color: #1b3871; margin-top: 2rem; border-bottom: 1px dashed var(--silver-border); padding-bottom: 5px;}
+        h4 { color: #1fff84; margin: 5px 0; font-weight: normal; }
         
         .dialogue-line, .context-line {
-            margin-bottom: 10px;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-bottom: 20px;
+            transition: opacity 0.8s ease, transform 0.5s ease;
         }
 
         /* Focus Mode Mechanics */
         .play-container.focus-active .dialogue-line {
-            opacity: 0.25;
+            opacity: 0.35;
             filter: grayscale(100%);
         }
         
@@ -125,7 +125,7 @@
         }
 
         /* Mobile adjustments */
-        @media (max-width: 600px) {
+        @media (max-width: 512px) {
             .play-container { padding: 1.5rem; }
             .toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
@@ -140,7 +140,7 @@
                 <option value="ALL">Select</option>
                 </select>
         </div>
-        <div style="color: #ffaa00; font-size: 0.8rem;">
+        <div style="color: #0ac2c8; font-size: 0.8rem;">
             created for GIDY ACTORS HUB.
         </div>
     </div>
