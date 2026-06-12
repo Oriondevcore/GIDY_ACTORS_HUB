@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophiatown Playwright - Orion Ventures Style</title>
+    <style>
+        /* Steel Foundation - Dark Mode */
+        :root {
+            --bg-deep: #0f1115;
+            --bg-panel: #1a1d24;
+            --text-main: #d1d5db;
+            --text-muted: #6b7280;
+            --silver-border: #374151;
+            --accent-glow: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Quicksilver', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0 auto;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+        
+        .toolbar {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            background: var(--bg-panel);
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--silver-border);
+        }
+
+        .toolbar label {
+            font-weight: bold;
+            color: #9ca3af;
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        select {
+            background-color: var(--bg-deep);
+            color: #fff;
+            border: 1px solid var(--silver-border);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-family: 'Quicksilver', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        select:focus {
+            border-color: #00f3ff;
+            box-shadow: 0 0 8px rgba(0, 243, 255, 0.4);
+        }
+
+        .play-container {
+            background: var(--bg-panel);
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--silver-border);
+        }
+
+        /* Blaze Accents & Formatting */
+        .character {
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            text-shadow: 0 0 10px currentColor; /* Dynamic glow */
+            background-color: rgba(0,0,0,0.3);
+            border: 1px solid currentColor;
+        }
+
+        .stage-direction {
+            font-style: italic;
+            color: var(--text-muted);
+            margin: 10px 0;
+            display: block;
+        }
+
+        h1 { color: #f3f4f6; border-bottom: 2px solid var(--silver-border); padding-bottom: 10px;}
+        h2 { color: #e5e7eb; margin-top: 2rem; border-bottom: 1px dashed var(--silver-border); padding-bottom: 5px;}
+        h4 { color: #9ca3af; margin: 5px 0; font-weight: normal; }
+        
+        .dialogue-line, .context-line {
+            margin-bottom: 10px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Focus Mode Mechanics */
+        .play-container.focus-active .dialogue-line {
+            opacity: 0.25;
+            filter: grayscale(100%);
+        }
+        
+        .play-container.focus-active .dialogue-line.focused {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.02);
+            transform-origin: left center;
+            background-color: var(--accent-glow);
+            padding: 5px 10px;
+            border-radius: 5px;
+            border-left: 3px solid currentColor;
+        }
+
+        .play-container.focus-active .context-line {
+            opacity: 0.5; /* Keep stage directions slightly visible */
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .play-container { padding: 1.5rem; }
+            .toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toolbar">
+        <div>
+            <label for="character-select">Focus Mode (Actor):</label>
+            <select id="character-select">
+                <option value="ALL">Show All Lines</option>
+                </select>
+        </div>
+        <div style="color: #6b7280; font-size: 0.8rem;">
+            AI Amplifies, I Create.
+        </div>
+    </div>
+
+    <div class="play-container" id="script-output">
+        </div>
+
+<textarea id="raw-text" style="display:none;">
+# Sophiatown Playwright
+#### - Copywriter - Graham Schubach
+#### - Orion Ventures SA 2026
+#### - [[https://www.orionventures.com]]
+
+
+## Act 1 - Scene 1
+
+## Summary
+(Shafts of light slowly reveal the Cast as they sing ‘Kofifi Sophia9. MINGUS is centre stage, his hat pulled low over his eyes.)
+
+(MINGUS returns to his seat, the song quietens to a murmur and JAKES rises to speak.)
+
+JAKES: Sophiatown, Softown, Kofifl, Kasbah, Sophia. … Place of Freedom Square, and the Back of the Moon. Place of Can Themba's House of Truth. Place of the G-men and Father Huddleston's Mission. Place of Balansky's and the Odin Cinema. And let's never forget Kort Boy and Jazz Boy and the Manhattan Brothers, and Dolly Rathebe singing her heart out - here in Sophia …
+
+(The song momentarily swells.)
+
+The Americans, the Berliners, the Gestapo, the Vultures - they fought here and blood ran in the streets of Sophia.
+
+Can Themba, Nat Nakasa, Lewis Nkosi, Bloke Modisane wrote their best, here in Sophiatown. Tambo and Mandela walked here.
+
+Luthuli stood, and a city's people walked past, here in Sophia.
+
+Sophiatown, named after one Tobiansky's wife. Gerty Street, Ray Street, Edith Street, Bertha Street, named after Tobiansky's daughters. Did he know what he was making, I wonder, here in Sophia?
+
+65 Gerty Street, that's where I found myself, in a shack at the back of a Softown cottage. Live-in at Mamariti's Diamond Shebeen. One pound a month! I say an exorbitant price to pay for a room hardly big enough to hold a bed. Tap in the yard, toilet in the corner - but it was grand because it was Softown. Freehold! It was ours! Not mine exactly, but it was ours. And it was close by to the big city - that is the why-for we wanted to stay.
+
+## Act 1 - Scene 2
+
+## Summary
+
+(The scene opens with PRINCESS sitting on the table painting her nails. MAMARITI is asleep in her chair. LULU is preparing for school.)
+
+(There is a knock on the door. Silence. PRINCESS doesn't move. Another knock. MAMARITI awakes with a start.)
+
+MAMARITI: Kom in! (Knock.) Kom binne! (Knock.) Hey kom in, come in! (Knock.) Jislaaik. Well if you don't want to come in, fok off man! (She is now fully awake.) Princess, go and open the door.
+
+PRINCESS: I'm busy.
+
+MAMARITI: How my son can live with you I don't know. Lulu, open the door.
+
+LULU: I'm busy, Ma. I'm studying.
+
+MAMARITI: For crying out loud! Stand up and go and open the door! What is going on in this house?
+
+LULU: (Going to the door.) I wandered lonely as a cloud … (Bangs her head.) … I wandered lonesome like a cloud … I'll never learn this thing.
+
+(Enter RUTH, the Jewish girl from Yeoville. She is carrying two suitcases and seems prepared to move in. LULU, PRINCESS and MAMARITI draw back in surprise.)
+
+RUTH: Hullo! I'm Ruth. (Silence.) Ruth Golden. (Silence.) I'm the Jewish girl. (Silence.) I wonder if this is the right address? (She scratches in her clutch bag.) 65 Gerty Street?
+
+LULU: Yes?
+
+RUTH: Well, I came in response to the advertisement …
+
+Where shall I put my things?
+
+LULU: Look, who are you?
+
+PRINCESS: Yes, this is Sophiatown you know.
+
+RUTH: Yes, I know. I've come in response to the advertisement.
+
+(Enter MINGUS and CHARLIE.)
+
+MINGUS: Hey, hey what's going on? What's happening?
+
+LULU: This lady seems to think she's moving in.
+
+RUTH: Yes, well …
+
+MINGUS: Listen, lady, who are you and what do you want?
+
+(CHARLIE, who has followed MINGUS in, begins to paw RUTH'S shoes. She pretends not to notice.)
+
+RUTH: I'm Ruth Golden, the Jewish girl from Yeoville. I came in response to the advertisement.
+
+## Act 1 - Scene 3
+
+## Summary
+
+(LULU is sitting on the floor trying to learn ‘The Daffodils’ by Wordsworth. JAKES watches as MINGUS and PRINCESS quarrel. MAMARITI sits quietly in a corner. FAHFEE sits at the kitchen table working on his gambling numbers.)
+
+PRINCESS: Ek soek haar nie hier nie. Mingus, hoe kan jy so maak? Let this Jewish girl just move in? As jou my like, Mingus, you'll get rid of her.
+
+MINGUS: Listen my angel, my princess, ek mnca jou, okay, but you're driving me mad. If you don't shaddup I'll have to crack you up.
+
+PRINCESS: How can you let her stay here? We don't know who she is. You don't listen to me - you only listen to Jakes.
+
+MINGUS: Look - you're just an American's tjerrie, and that means you shaddup and listen or I'll have to cut you up.
+
+PRINCESS: I know about these Jewish girls from Yeoville. They're spoilt. Their fathers give them lots of money - they do what they like. They've all got nannies. Well, I'm not going to be anybody's nanny.
+
+LULU: You're just jealous.
+
+MINGUS: Look, I brought you here. I give you dresses, I take you to bioscope, you're my princess. What else do you want?
+
+PRINCESS: I want that Jewish girl out.
+
+MINGUS: Shaddup or I'll have to cut your spinal off! I didn't bring you from your shack so you can complain.
+
+LULU: I like her. I stared at her face all night. It glowed in the dark. It made me think of the line in this poem, ‘a host of golden daffodils'. I need help with this homework.
+
+PRINCESS: I'll help you.
+
+LULU: What do you know - you're just an American's tjerrie.
+
+PRINCESS: I'll give you a good klap. How can you let her stay here? She doesn't belong here, man. She's a European. Europeans don't live in Sophiatown. It's a native location.
+
+JAKES: It's a freehold suburb - no fences, no superintendent.
+
+MINGUS: Ja, and this house is open. If I say she stays, she stays.
+
+JAKES: Look, she's got guts. I need her. She's a hot story. How many others are there like her?
+
+LULU: There's that white woman living with the police sergeant in Orlando.
+
+JAKES: Regina Brooks.
+
+MINGUS: Ja, she's alright.
+
+## Act 1 - Scene 4
+
+## Summary
+
+  
+(RUTH is having lessons in how to survive in Sophiatown from JAKES, FAHFEE and MINGUS.)
+
+FAHFEE: Ek se, waar's die ouens hier?
+
+RUTH: Hoozit gents!
+
+FAHFEE: Is khuvet onder die korset - en met jou?
+
+RUTH: Die mission is grand.
+
+FAHFEE: En wie is jy?
+
+RUTH: Ek! Ek is die matara van die dla!
+
+FAHFEE: Wie?
+
+RUTH: Die matara van die dla.
+
+FAHFEE: Jy's mooi hey.
+
+RUTH: Don't touch. Jy moenie baaiza nie. Sit gents. Sit julle majietas. Die magrizin van die stuk is nie hier nie.
+
+FAHFEE: Wie?
+
+RUTH: Die magrizin van die stuk?
+
+MINGUS: Not bad, Fahfee, try it again.
+
+FAHFEE: Ek se, waar's die ouens hier?
+
+RUTH: Hoozit gents!
+
+FAHFEE: Is khuvet onder die korset - en met jou?
+
+RUTH: Die mission is grand.
+
+FAHFEE: En wie is jy?
+
+RUTH: Ek! Ek is die matara van die dla!
+
+FAHFEE: Wie?
+
+RUTH: Die matara van die dla.
+
+FAHFEE: Jy's mooi hey.
+
+RUTH: Don't touch. Jy moenie baaiza nie. Sit gents. Sit julle majietas. Die magrizin van die stuk is nie hier nie.
+
+FAHFEE: Wie?
+
+RUTH: Die magrizin van die stuk?
+
+MINGUS: Right. Grand. And if die majietas kom, and go for you, what do you say?
+
+RUTH: I'm a virtuous well-bred girl, I'm a nylon.
+
+MINGUS: And if they don't leave you alone, they really go for you . . .?
+
+RUTH: Julie moenie baaiza nie?
+
+MINGUS: Ag! Nee man!
+
+RUTH: I don't know - I'll never learn.
+
+JAKES: Look, it's in the eyes, it's a warning signal which says, “Leave me alone.’ It's because you're white. White flesh, it's a fatal attraction. They get you into bed - it's a fart in the face for this Prime Minister Strijdom.
+
+MINGUS: Look, if an American comes in here and he wants you, what are you going to do?
+
+RUTH: I'll stop him.
+
+MINGUS: These Americans always get what they want. They see girls and they're mad, mad. They see white girls and they're over the back of the moon. And white girls living in Softown! It's our territory, man. I see something, I go for it. Look at me and Princess. I klapped her till she loved me.
+
+## Act 1 - Scene 5
+
+## Summary
+  
+(A single tight spot reveals RUTH sitting in a chair. FAHFEE stands behind her. She listens with intense concentration, desperately trying to learn.)
+
+FAHFEE: (in a monotone) 1 is for King; 2, Monkey; 3, Seawater; 4, Dead Man; 5 is for Tiger; 6 is for Ox; 7 is for Skelm; 8 is for Pig; 9 is for Moon; 10, Eggs; 11, Car; 12, Granny; 13, Big Fish; 14, Dead Woman; 15, Slegte Vrou; 16, Pigeons; 17, Diamond Lady; 18, Small Change; 19, Small Girl; 20, Cat; 21, Elephant; 22, Ship; 23, Long Hair; 24, Big Mouth; 25, Big House; 26, Bees.
+
+(Blackout.)
+
+## Act 1 - Scene 6
+
+## Summary
+  
+(LULU is working at her homework. MAMARITI is carefully cleaning the typewriter. RUTH is writing in a diary.)
+
+LULU: Homework, bloody homework! Every day is homework. Got to wash the dishes for Mama, look after the customers, but these school teachers, they don't understand.
+
+RUTH: What are you doing?
+
+LULU: I'm writing a composition.
+
+RUTH: I'll help you.
+
+LULU: Will you? You're a star, hey!
+
+RUTH: What's it about?
+
+LULU: It's called ‘My Family’. God, my teachers are dumb - what a stupid title: ‘My Family'!
+
+RUTH: Well, what have you got there?
+
+LULU: First I started writing about my mother.
+
+RUTH: Mmmm?
+
+LULU: She's just a cheeky old woman, breaking the law, working on her beer, and planning for her future which never comes.
+
+MAMARITI: Sis! You stupid little idiot. How can you say all those things about me after all I've done for you?
+
+LULU: Ag Ma, it's just a composition.
+
+RUTH: And?
+
+LULU: I'm also writing about my brother Mingus, who's always stealing goods from the railways.
+
+RUTH: I'm not sure you should say those things.
+
+LULU: But they're true!
+
+RUTH: So?
+
+LULU: Do you know, Mingus and the American gang, they stop the intellectuals, die situations, on the street corner, and to make trouble they make them recite Shakespeare!
+
+RUTH: Shakespeare?
+
+LULU: That's what Jakes told me. He says he's got a special line he learnt just in case/Oh what a rogue and peasant slave ami'.
+
+RUTH: Hamlet!
+
+LULU: Ja. I was going to write it here but Jakes says I shouldn't - he says all my teachers will think it's bad English! So I just write, ‘Mingus steals goods from the railways.'
+
+RUTH: Surely there are nice things you can write?
+
+LULU: My teacher says telling the truth is a virtue.
+
+RUTH: But there are all sorts of truths. It's true to say your brother steals from the railways, but it's also true to say that he gives your mother money to run the house, and money for your school.
+
+LULU: He can keep his money for school.
+
+RUTH: No! He pays for you, why not tell that truth?
+
+## Act 1 - Scene 7
+
+## Summary
+  
+(The family are gathered around the kitchen table. JAKES flourishes a Drum magazine with great pride and excitement.)
+
+JAKES: I've got it! (He lays the magazine on the table.) I've got it here! Come and see, come right up and see! This is break. No more boxing, no more gangster stories. I'm dealing with socialites. Come on - open it. Who do you see?
+
+LULU: (Opening it.) It's Ruth!
+
+RUTH: (Rushing to look.) Do I really look like that?
+
+LULU: Look here, it's me! Oh, Jakes, in my school uniform! How could you do that to me?
+
+PRINCESS: (Pleased with herself.) Look what I look like!
+
+JAKES: The front page of Drum is waiting! Cheesecake, crime, babies, boxing - and more cheesecake. Princess must become a Drum girl, a model.
+
+PRINCESS: Do you really think so?
+
+MINGUS: You'll be famous, my sweetie. Let's have a party.
+
+EVERYONE: Ja!
+
+JAKES: Don't you want to hear it? Listen here: ‘The first of four articles on a Sophiatown phenomenon, “Ruth Golden” by Jakes Mamabolo.'
+
+RUTH: God - if my parents find out they'd die!
+
+LULU: Come on. Who in Yeoville reads Drum? It's a native magazine.
+
+FAHFEE: Don't worry - nobody is gonna find out. Jakes, what's the page number?
+
+JAKES: What?
+
+FAHFEE: The page number, what's it man? It's today's winner.
+
+JAKES: Number 23!
+
+FAHFEE: Ah! You see! Number 23! A Dream of Long Hair!
+
+JAKES: Don't you want to hear what it says?
+
+FAHFEE: Com'on, give it here - I'll read it. ‘Mixing It Up in S of town. Dig that crazy white girl living it up in Gerty Street! Pshoo! Was there a scramble when word went round Sophiatown that a Jewish girl was living at Mamariti's Diamond Shebeen …'
+
+MAMARITI: Say that again - that's me!
+
+FAHFEE: ‘Nobody believed it was possible. Was this just a fantasy? A Jewish girl living in Softown! It's not possible. Is she crazy as a bedbug? Who'd leave the easy white life of Yeoville for the seething hot-spots of Kofifi? Well, folks, let me introduce you. She is none other than Ruth Golden. Height: five foot three inches …'
+
+RUTH: Five foot four!
+
+JAKES: Oops! Sorry.
+
+## Act 2 - Scene 1
+
+## Summary
+ 
+(The company storms onto stage, singing ‘Koloi e\ Each character emerges and shouts his or her protest over the music.)
+
+KOLOI E
+
+MINGUS: Strijdom, Strijdom, watch out! Watch out, Strijdom!
+
+FAHFEE: Hey, hey, hey, hey, hey! Die kar van ons - it's going right over you!
+
+CHARLIE: Ja Strijdom. Ons dak nie, ons pola hier. Gee pad, gee pad, gee pad!
+
+PRINCESS: Hey Boere, watch out! This car it's got no wheels! Gee pad, gee pad!
+
+JAKES: Strijdom, get your ox-wagon out the way! Strijdom - get, get, get!
+
+FAHFEE: Our children, born here, in Gerty Street, in Ray Street, in Good Street, in Gold Street. Don't think you can drive us away Strijdom!
+
+MINGUS: We're here to stay. Dis onse plek. Voetsak, voetsak, voetsak!
+
+LULU: Title deeds. En nou waar's die law? Fok jou law, Strijdom. Dis ‘n rich man's law.
+
+JAKES: Get your Boere out. The rivers are running. Take your guns, take your Saracens en gaan weg. Give way Strijdom, give way.
+
+MAMARITI: Here we come, Strijdom. Watch out, this car's moving! It's got no wheels. Here we come. We're gonna roll, we're gonna roll right over you.
+
+MINGUS: Kom Boere, gee pad, gee pad, gee pad!
+
+FAHFEE: Strijdom, remember the Defiance Campaign. Ons is in Defiance. Ten thousand people broke your rubbish laws. Boere gee pad, gee pad, gee pad. Ons pola hier! Gee pad.
+
+(The song builds as the Cast prepare for the next scene. RUTH and MAMARITI seat themselves at the kitchen table and cut vegetables. LULU resumes her studies and JAKES sits at his typewriter. The song ends.)
+
+FAHFEE: News of the Day! Dikgang tsa gompieno! Congress calls for a fight on all fronts. This year is the year of the Congress of the People. We won't move. What's the number? Yes? Yes? It's 26. 26 June 1955 - one nine five five.
+
+JAKES: Hey Fahfee, what's going on?
+
+## Act 2 - Scene 2
+
+## Summary
+  
+(Spotlight on RUTH. She is concentrating intensely.)
+
+RUTH: 17, Diamond Lady; 18, Small Change; 19, Little Girl; 20, Cat; 21, Elephant; 22, Ship; 23, Long Hair; 24 Big Mouth; 25, Big House; 26, Bees.
+
+(Blackout.)
+## Act 2 - Scene 3
+
+## Summary
+  
+(Enter the four men dressed in immaculate evening dress, white jackets, bowties, walking-sticks, and hats pulled low over the eyes. As they sing, they execute dance steps reminiscent of the Manhattan Brothers.)
+
+BANTU BAHLALA
+
+(Blackout.)
+
+## Act 2 - Scene 4
+
+## Summary
+  
+(It is midnight. Enter RUTH in a nightdress, carrying a paraffin lamp. She sneaks up to the typewriter and begins to read one of JAKES's stories. Suddenly there is a noise behind her. Enter MINGUS. He is dressed to kill, hat brim pulled low, trench coat. He has returned from a job. He stands in the doorway.)
+
+MINGUS: What are you doing?
+
+RUTH: Oh God, Mingus - you gave me a fright.
+
+MINGUS: Come on Ruth Golden, what are you doing?
+
+RUTH: I couldn't sleep.
+
+MINGUS: Ja, and so you scratch in Jakes’ things. What do you want?
+
+RUTH: I'm just looking.
+
+MINGUS: Why? What do you think you'll find there that you don't know already? Haven't you seen enough?
+
+RUTH: Look, I couldn't sleep.
+
+MINGUS: Why? Does Princess keep you awake, that you have to wander around at night?
+
+RUTH: We manage.
+
+MINGUS: Ja, and how does Sophiatown look now? Two in a bed - or does Princess sleep underneath?
+
+RUTH: You kicked her out, and your mother wants the rent, so we manage.
+
+MINGUS: Ja, and when the majietas come? One underneath and one on top! Sophiatown style.
+
+RUTH: What do you want, Mingus?
+
+MINGUS: From you. Miss Golden - nothing.
+
+RUTH: Good, I'll just go right back to bed.
+
+MINGUS: Hold it!
+
+RUTH: What do you want, Mingus?
+
+MINGUS: Come here! Come on. Give me your hand. I've just been on a job. Here - feel.
+
+(He puts her hand under his jacket.)
+
+RUTH: (Pulling away.) Ah.
+
+MINGUS: Tonight there's no sleep for either of us. What I need now is a drive, a ride in the moonlight. I need to look at the moon.
+
+RUTH: Why don't you go, Mingus?
+
+MINGUS: Hold it. I want you to come with. It's lonely out there on your own. I want to look at your hair, your face, the rest of you.
+
+RUTH: I'm tired. I'm going to bed.
+
+MINGUS: (Blocking her exit.) If you want to see Sophiatown you gotta see all sides. This is Sophiatown by night.
+
+RUTH: Look Mingus, it's late. I don't feel like going for a drive.
+## Act 2 - Scene 5
+
+## Summary
+  
+(Enter JAKES, dishevelled. He sits himself at his typewriter. He looks as if he's been up all night.)
+
+JAKES: (Pounding away.) The bastards, the tricky bastards! What kind of a brain do you have to have to think like this? God give me the right words!
+
+MAMARITI: (Offstage.) Hey, Jakes, it's five o'clock in the morning. Hey, tula wena! I want to sleep. Tik-tik! Are you mad, man? Hey, you must find somewhere else to live if you want to work at five o'clock in the morning!
+
+(Enter LULU, wearing a nightdress.)
+
+LULU: What's going on?
+
+MAMARITI: Hey Lulu, tell that madman from Drum to stop die geraas.
+
+LULU: Jakes, it's five o'clock in the morning.
+
+JAKES: You tell your mother I pay good rent. This is my bedroom. You see the chalkline on the floor?
+
+LULU: So?
+
+JAKES: Well, I work in my bedroom, so leave me alone!
+
+MAMARITI: (Offstage.) Luister! You bloody keep quiet - or out!
+
+JAKES: Jesus, Ma, you're like the Boere. You want me on the streets. I'm working, I pay rent, this is my space, pitiful as it is, and history is being made right now - and you want silence!
+
+(There is a knocking on the door.)
+
+JAKES: Jesus Christ! What now? Surely not today?
+
+(Enter FAHFEE, carrying a suitcase.)
+
+FAHFEE: They got me. They knocked down my shack before my eyes.
+
+MINGUS: (Offstage.) Come on, come on - move these boxes! Charlie, you useless! You must move, man.
+
+(Enter MINGUS and CHARLIE. They are in a panic. They're carrying piles of boxes. There is an immediate uproar.)
+
+MINGUS: Make space! Make space! We got work to do.
+
+(Enter RUTH in a nightdress.)
+
+RUTH: What's going on?
+
+LULU: What's all these boxes?
+
+JAKES: What's the story, Mingus?
+
+MINGUS: Come help! Don't just stand there - move your arse! Get these boxes in - com'on. Hey, hoendervleis, kom help.
+
+(Exit MINGUS, LULU, RUTH and CHARLIE to carry more boxes. Enter MAMARITI.)
+
+MAMARITI: What's happening? It's five o'clock in the morning.
+
+JAKES: Toby Street removals, Ma. Three days early.
+
+MAMARITI: Jesus!
+
+(Exit MAMARITI, enter MINGUS.)
+
+MINGUS: Don't just stand there, Jakes, come and help.
+
+JAKES: What's the story Mingus?
+
+MINGUS: There's no story. Work for your living for a change! Have you ever done a stroke of honest work? No! Just sit down and tik-tik-tik all day. Kom, help.
+## Act 2 - Scene 6
+
+## Summary
+  
+(MINGUS is tying up his stolen goods and possessions. On centre stage, ropes and boxes abound. CHARLIE and MINGUS attempt to make some order.)
+
+MINGUS: Come on, Charlie, we gotta load all these things on the G.G.'s truck. Looks like junk doesn't it, Charlie, but we know it's not. Come on, what's in that box? Jewellery! from Katz en Lourie. And that box? No, no, no - you gotta handle it with utmost care. Gently. Put it down. Turn it over now. And do you know what's in that box? Stetson hats. When I get down to Meadowlands, I'll be selling them there. I hear say these trains from Meadowlands are going to be easy pickings, and if the fences keep us in, they'll keep the G-men out - you'll see.
+
+Do you know what's in that box? I thought as much. You don't know a damn thing - all your life you're depending on this brain, living on this man, and what have you learnt? Nothing. Just dumb hands for carrying and dumb legs for running behind my tail.
+
+(Exit CHARLIE.)
+
+Well, four rooms in Meadowlands doesn't seem such a bad prospect.
+
+(Enter CHARLIE with a small tattered suitcase.)
+
+MINGUS: Hey hey hey! What do you think you're doing?
+
+Where you putting that suitcase of yours?
+
+CHARLIE: I'm going to get a house.
+
+MINGUS: (Laughing.) One thing is very clear - that suitcase does not belong to me, Charlie, so the best thing for you to do is move it right away.
+
+CHARLIE: I'll get a house!
+
+MINGUS: Come on Charlie, you'll get a labour camp! I think I'm right in presuming that it is only my assets and properties that are going with me to Meadowlands. So I think the best thing for you to do is to get your suitcase well away!
+
+CHARLIE: No!
+
+MINGUS: What you mean, Charlie? The time has come for you to go your way and I get going my way.
+
+CHARLIE: No!
+
+MINGUS: Look, Charlie, for your own good - just move your stuff away.
+
+CHARLIE: No! I'm going with you.
+
+MINGUS: Just move it away!
+
+CHARLIE: No! I can't stay here. What will I do? Everything I've done for you.
+## Act 2 - Scene 7
+
+## Summary
+  
+(The Cast sing ‘Boph’ umthwalo’ as they enter.)
+
+(As the Cast sing, they slowly place a lifetime's furniture and possessions in a pile around JAKES's desk. The old bath is carefully laid on its side. MAMARITI climbs onto her chair which has been placed on top of an old tin trunk. The other members of the Cast each take up a special position and recite their monologues over the singing. The stage becomes very quiet, only the hum of the song remaining. The lighting is moody. Faces are picked out by spotlights.)
+
+MAMARITI: The day they moved us out, it was the day the big rains fell. That was the day of the tears and the day of the Saracens.
+
+LULU: We watched them move the first street, Toby Street, where Dr Xuma was. The rain was falling and we were only a few. The bulldozers were there knocking down the pillars of the first house. I don't remember the name of the people. That was Toby Street where Dr Xuma was - right next to Westdene. Father Huddleston, Dr Xuma, Bo Resha and Oliver Tambo were there.
+
+MINGUS: The bulldozers bulldozed five houses: one, two, three, four, five at the same time. As they were bulldozing the houses, the lorries that were supplied by the G.G. were taking the loads out to Meadowlands.
+
+MAMARITI: The day my house was removed, it was half-past five in the morning. I think it was on a Thursday. They knocked at my door. Three loud knocks. Five tail Dutchmen. They said the day had come. I wished for a special sign on my door, but there was none.
+
+LULU: The lorries were waiting. Even as we packed, the labourers with the Boere were hitting the pillars of the verandah with big hammers.
+
+MAMARITI: I said to them, I wished they could give us enough time to pack, as I was going to have my cups and my plates broken.
+
+LULU: And they said, “ Jy praat te veel. Moenie praat nie.’ And Ma said, 1 have the right to talk for my things.’ By eight o'clock we were already moved to Meadowlands. The walls and the floors of the house were rough cement. Everything was awful and we were very much unhappy.
+</textarea>
+
+    <script>
+        const rawContent = document.getElementById('raw-text').value;
+        const outputDiv = document.getElementById('script-output');
+        const characterSelect = document.getElementById('character-select');
+        
+        // Blaze Neon Color Palette
+        const neonColors = [
+            '#00f3ff', // Cyan
+            '#ff00ea', // Vibrant Pink
+            '#b026ff', // Electric Purple
+            '#39ff14', // Neon Green
+            '#ff4500', // Sunset Orange
+            '#fce205', // Yellow
+            '#ff0055', // Hot Red
+            '#00ff7f'  // Spring Green
+        ];
+        
+        const characterColors = {};
+        const uniqueCharacters = new Set();
+        let colorIndex = 0;
+
+        const lines = rawContent.split('\n');
+        let htmlContent = '';
+
+        // Step 1: Parse and inject HTML
+        lines.forEach(line => {
+            let processedLine = line;
+
+            if (processedLine.startsWith('# ')) {
+                processedLine = `<h1>${processedLine.replace('# ', '')}</h1>`;
+            } else if (processedLine.startsWith('## ')) {
+                processedLine = `<h2>${processedLine.replace('## ', '')}</h2>`;
+            } else if (processedLine.startsWith('#### ')) {
+                processedLine = `<h4>${processedLine.replace('#### ', '')}</h4>`;
+            } else if (processedLine.trim() !== '') {
+                
+                // Detect Character Line
+                let charMatch = processedLine.match(/^([A-Z\s]+):/);
+                
+                if (charMatch) {
+                    let charName = charMatch[1].trim();
+                    uniqueCharacters.add(charName);
+                    
+                    // Assign a consistent neon color
+                    if (!characterColors[charName]) {
+                        characterColors[charName] = neonColors[colorIndex % neonColors.length];
+                        colorIndex++;
+                    }
+                    
+                    let color = characterColors[charName];
+                    
+                    // Format the name tag with color
+                    processedLine = processedLine.replace(/^([A-Z\s]+):/, `<span class="character" style="color: ${color}; border-color: ${color};">${charName}:</span>`);
+                    
+                    // Format internal stage directions
+                    processedLine = processedLine.replace(/\((.*?)\)/g, '<span class="stage-direction">($1)</span>');
+                    
+                    // Wrap entire line in a dialogue container for Focus Mode targeting
+                    processedLine = `<div class="dialogue-line" data-character="${charName}">${processedLine}</div>`;
+                } else {
+                    // It's a standard context line / stage direction block
+                    processedLine = processedLine.replace(/\((.*?)\)/g, '<span class="stage-direction">($1)</span>');
+                    processedLine = `<div class="context-line">${processedLine}</div>`;
+                }
+            }
+            
+            htmlContent += processedLine;
+        });
+
+        outputDiv.innerHTML = htmlContent;
+
+        // Step 2: Populate the Focus Mode Dropdown
+        Array.from(uniqueCharacters).sort().forEach(char => {
+            let option = document.createElement('option');
+            option.value = char;
+            option.textContent = char;
+            option.style.color = characterColors[char];
+            option.style.backgroundColor = '#1a1d24'; // Keep dropdown items dark
+            characterSelect.appendChild(option);
+        });
+
+        // Step 3: Handle Focus Mode Logic
+        characterSelect.addEventListener('change', (e) => {
+            const selectedChar = e.target.value;
+            const allDialogueLines = document.querySelectorAll('.dialogue-line');
+            
+            if (selectedChar === 'ALL') {
+                outputDiv.classList.remove('focus-active');
+                allDialogueLines.forEach(line => line.classList.remove('focused'));
+                characterSelect.style.borderColor = '#374151'; // Reset border
+                characterSelect.style.boxShadow = 'none';
+            } else {
+                outputDiv.classList.add('focus-active');
+                
+                // Update dropdown styling to match the character color
+                let charColor = characterColors[selectedChar];
+                characterSelect.style.borderColor = charColor;
+                characterSelect.style.boxShadow = `0 0 8px ${charColor}40`;
+                
+                allDialogueLines.forEach(line => {
+                    if (line.getAttribute('data-character') === selectedChar) {
+                        line.classList.add('focused');
+                        line.style.color = charColor; // apply glow/color to focused text
+                    } else {
+                        line.classList.remove('focused');
+                        line.style.color = ''; // reset text color
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
